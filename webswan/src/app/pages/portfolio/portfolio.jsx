@@ -1,1 +1,1 @@
-import './Portfolio.css'
+import './Portfolio.sass'
