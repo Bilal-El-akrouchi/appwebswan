@@ -19,7 +19,12 @@ export default function Home() {
   const supp = (index) => {
     setTimeLeft(4)
     setAuto(true);
-    setZoom(index);
+    if (index) {
+      setZoom(index);
+      
+    }else {
+      setZoom(0)
+    }
     if (forfait === 4) {
       setForfait(1);
     } else {
