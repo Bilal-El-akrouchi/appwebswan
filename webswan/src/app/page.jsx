@@ -7,7 +7,7 @@ export default function Home() {
   const [bg, setBg] = useState(null);
   const [forfait, setForfait] = useState(0);
   const [auto, setAuto] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(4);
+  const [timeLeft, setTimeLeft] = useState(5);
 
   const [items, setItems] = useState([
     "bg-amber-300",
@@ -17,26 +17,43 @@ export default function Home() {
   ]);
 
   const supp = (index) => {
-    setTimeLeft(4)
+    // On s'assure que index est défini et on nettoie la chaîne
+    const cardClass = items[index]
+    setTimeLeft(5);
     setAuto(true);
+    
+    console.log("Carte sélectionnée :", cardClass);
+  
+    switch (cardClass) {
+      case "bg-amber-300":
+        setForfait(1);
+        break;
+      case "bg-blue-300":
+        setForfait(2);
+        break;
+      case "bg-red-300":
+        setForfait(3);
+        break;
+      case "bg-green-300":
+        setForfait(4);
+        break;
+      default:
+        setForfait(0);
+    }
+    
     if (index) {
       setZoom(index);
-      
-    }else {
-      setZoom(0)
-    }
-    if (forfait === 4) {
-      setForfait(1);
     } else {
-      setForfait(forfait + 1);
+      setZoom(0);
     }
+  
     setTimeout(() => {
       setZoom(null);
       setItems((prevItems) => {
         const newItems = [...prevItems];
-        const select = newItems.splice(index, 1);
-        setBg(select);
-        newItems.push(select);
+        const [selected] = newItems.splice(index, 1);
+        setBg(selected);
+        newItems.push(selected);
         return newItems;
       });
     }, 1000);
@@ -46,7 +63,7 @@ export default function Home() {
     let interval;
     if (auto) {
       interval = setInterval(() => {
-        supp();
+        supp(0);
       }, 5000);
     }
     return () => {
@@ -54,18 +71,18 @@ export default function Home() {
         clearInterval(interval);
       }
     };
-  }, [auto, forfait]);
+  }, [auto, forfait, items]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setTimeLeft((prev) => (prev < -1 ? 4 : prev - 0.05));
+      setTimeLeft((prev) => (prev < 0 ? 5 : prev - 0.05));
     }, 50);
 
     return () => clearTimeout(timer);
   }, [timeLeft]);
 
   const autoBar = {
-    width: `${timeLeft*25}%`
+    width: `${timeLeft * 20}%`
   }
 
   return (
