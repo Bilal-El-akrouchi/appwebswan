@@ -1,6 +1,8 @@
 "use client";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import logo from './../../public/img/logo.png'
+import cygne from './../../public/img/header_cygne.png'
 // import useAuth from "@/hooks/useAuth";
 
 
@@ -92,15 +94,19 @@ export default function Home() {
               className="flex justify-center items-center rounded-3xl bg-custom w-[100px] h-[50px] "
             />
             <button
-              onClick={handleSignInClick}
+              // onClick={handleSignInClick}
               className="bg-custom p-2 cursor-pointer"
             >
               sign in
             </button>
           </div>
         </nav>
+        <div>
+          <h1 className="text-white ">Swan Brut</h1>
+        </div>
+
       </header>
-      // -------------------------//
+
     <div id="home">
       <section className={`${bg} overflow-hidden w-full`}>
         <div style={autoBar} className={`w-full h-5 transition-all ${forfait == 0 ? '' : `${items[0]}`}`}></div>
