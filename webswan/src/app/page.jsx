@@ -3,7 +3,8 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import logo from "./../../public/img/logo.png";
 import cygndpng from "./../../public/img/cygne_sans_fond.png";
-// import useAuth from "@/hooks/useAuth";
+import Header from "./components/header/Header.jsx"; 
+import Who from "./components/who/Who";
 
 export default function Home() {
   const [zoom, setZoom] = useState(null);
@@ -72,46 +73,11 @@ export default function Home() {
 
   return (
     <>
-      <header className="bg-custom w-full h-screen">
-        <div className="absolute flex justify-center items-center pt-17 w-[100%] ">
-          <div className="flex justify-end  item-center 0 opacity-70 w-screen ">
-            <h1 className="text-white text-[11rem] ">MODEL </h1>
-          </div>
-          <div className="flex justify-start item-center  opacity-70 z-10  w-screen">
-            <h1 className="text-white text-[11rem] "> BRUT </h1>
-          </div>
-        </div>
 
-        <div className="enfantheader absolute">
-          <nav className="w-full h-[10vh] bg-custom-deux shadow-xl flex justify-around items-center">
-            {/* Logo : width/height requis par <Image /> pour éviter l'erreur de compilation Next.js */}
-            <Image
-              src={logo}
-              alt="webswan logo"
-              width={120}
-              height={60}
-              className="w-[5vw] h-auto"
-              priority
-            />
-
-            <div className="flex items-center gap-11">
-              <input
-                type="text"
-                placeholder="connexion"
-                className="flex justify-center items-center rounded-3xl bg-custom w-[100px] h-[50px] "
-              />
-              <button
-                // onClick={handleSignInClick}
-                className="bg-custom p-2 cursor-pointer"
-              >
-                sign in
-              </button>
-            </div>
-          </nav>
-          <div></div>
-        </div>
-      </header>
-
+      {/* ///////// H E A D E R //////////: */}
+       <Header/>
+      {/* ///////// W H O //////////: */}
+      <Who/>
       <div id="home">
         <section className={`${bg} overflow-hidden w-full`}>
           <div

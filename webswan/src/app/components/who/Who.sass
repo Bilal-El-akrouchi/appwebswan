@@ -1,0 +1,28 @@
+.bg-vert-fonce
+    background-color: #5c664f !important
+
+.txtvert
+    color: #56827e
+.section1
+/* Who.sass (syntaxe indentée) */
+.bg-image-2
+    background-image: url('../../../../public/img/HEADER_CYGNE(2).png')
+    
+.knockout
+  background: #fff
+  padding: 4rem 2rem
+  font: 900 8vw/1 "Arial Black", sans-serif
+  text-align: center
+
+  /* le texte ne peint plus rien */
+  color: transparent
+  -webkit-text-fill-color: transparent
+
+  /* -------- masque qui perce le texte -------- */
+  /* deux images de masque */
+  -webkit-mask-image: linear-gradient(#000 0 0), linear-gradient(#000 0 0)
+  /* à quoi chaque image s’applique */
+  -webkit-mask-clip: border-box, text
+  /* on soustrait le 2ᵉ masque (texte) du premier (fond) */
+  -webkit-mask-composite: xor
+  mask-composite: exclude           // Chrome / Edge ≥ 88
