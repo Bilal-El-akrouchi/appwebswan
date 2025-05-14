@@ -93,9 +93,9 @@ export default function Home() {
           >
             <p className="text-5xl">Nos différents forfait</p>
             <div className="mt-30">
-              <p>Forfait 1</p>
-              <p>Forfait 2</p>
-              <p>Forfait 3</p>
+              <p className="fulgurance">Forfait 1</p>
+              <p className="ascension">Forfait 2</p>
+              <p className="transcendance">Forfait 3</p>
               <p>Forfait 4</p>
             </div>
           </div>

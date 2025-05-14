@@ -1,26 +1,33 @@
-// Simple reproduction of the “African forest” travel‑journal slide
-// Image credits: replace `url('/forest.jpg')` with your own
-"use client";
-import Image from "next/image";
-import "./Who.sass";
-export default function AfricanForestSection() {
-  return (
-    <>
-      <section className="w-full bg-image-2 text-white bg-vert-fonce">
-        <div className="w-[50%]  h-full   ">
-          <div className="knockout">
-            QUI SOMMES
-            <br />
-            NOUS
-          </div>
-        </div>
-      </section>
-    </>
-  );
-}
+// app/components/who/Who.jsx
+'use client'
+import './Who.sass'
+import { useState, } from 'react';
+import { useEffect } from 'react';
 
-{
-  /* <button className="group flex items-center gap-3 rounded-full bg-emerald-400/20 px-6 py-3 text-sm font-medium text-white transition hover:bg-emerald-400/30">
-  Let&apos;s Transform Your Digital Presence
-</button> */
+export default function Who() {
+   const [scrollY, setScrollY] = useState(0);
+  
+    useEffect(() => {
+      const handleScroll = () => {
+        setScrollY(window.scrollY);
+        if (window.scrollY < 400) {
+          console.log("je scrolle");
+        }
+      };
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    const test =  `bg-amber-500 ${
+      scrollY < 100
+        ? "bg-amber-200 h-screen "
+        : "bg-amber-100 h-screen absolute "
+    }`;
+  return (
+    <section className={test}>
+      <h2 className="qui-texte">
+        QUI<br/>SOMMES&nbsp;NOUS
+      </h2>
+    </section>
+  )
 }

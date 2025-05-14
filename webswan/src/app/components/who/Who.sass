@@ -1,28 +1,31 @@
-.bg-vert-fonce
-    background-color: #5c664f !important
+// // app/components/who/Who.sass
+// $fond: #052d2e
 
-.txtvert
-    color: #56827e
-.section1
-/* Who.sass (syntaxe indentée) */
-.bg-image-2
-    background-image: url('../../../../public/img/HEADER_CYGNE(2).png')
-    
-.knockout
-  background: #fff
-  padding: 4rem 2rem
-  font: 900 8vw/1 "Arial Black", sans-serif
-  text-align: center
+// @keyframes grow
+//   from
+//     height: 00vh
+//   to
+//     height: 100vh
 
-  /* le texte ne peint plus rien */
-  color: transparent
-  -webkit-text-fill-color: transparent
+// .qui-panel
+//   position: fixed
+//   bottom: 0
+//   left: 0
+//   width: 100%
+//   height: 100vh
+//   background: $fond
+//   display: flex
+//   justify-content: center
+//   align-items: center
+//   animation: grow linear both
+//   view-timeline-name: --hero-tl
+//   /* liaison avec le scroll racine – supporté Chrome 115+, Safari 17, FF Nightly */
+//   animation-timeline: scroll(root block)
+//   animation-range: 0 200vh
 
-  /* -------- masque qui perce le texte -------- */
-  /* deux images de masque */
-  -webkit-mask-image: linear-gradient(#000 0 0), linear-gradient(#000 0 0)
-  /* à quoi chaque image s’applique */
-  -webkit-mask-clip: border-box, text
-  /* on soustrait le 2ᵉ masque (texte) du premier (fond) */
-  -webkit-mask-composite: xor
-  mask-composite: exclude           // Chrome / Edge ≥ 88
+// .qui-texte
+//   color: #fff           // ← remplace @apply text-white
+//   text-align: center    // idem pour text-center
+//   line-height: 1.1      // idem leading-tight
+//   font-size: clamp(2rem,4vw,6rem)
+
